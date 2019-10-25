@@ -70,8 +70,13 @@ public class AccountController {
 	
 	
 	//访问添加页面并附带相关项目信息
-	@RequestMapping({"add0","add.jsp"})
+	@RequestMapping("add0")
 	public String toadd0(HttpSession session, Model model){
+		User user = (User) session.getAttribute("user");
+		if(user == null){
+			model.addAttribute("msg", "你还未登陆");
+			return "login";
+		}
 		Map<Integer,Type> typeMap = (Map<Integer, Type>) session.getAttribute("typeMap");
 		Map<Integer,Type> typeMap0 = new HashMap();
 		for(Integer key : typeMap.keySet()){

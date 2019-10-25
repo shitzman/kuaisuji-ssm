@@ -613,7 +613,7 @@ layui.define(['layer', 'laytpl', 'form', 'element', 'upload', 'util'], function(
     ,click: function(type){
       if(type === 'bar1'){
         //layer.msg('打开 index.js，开启发表新帖的路径');
-        location.href = 'add.jsp';
+        location.href = 'add0';
       }
     }
   });
