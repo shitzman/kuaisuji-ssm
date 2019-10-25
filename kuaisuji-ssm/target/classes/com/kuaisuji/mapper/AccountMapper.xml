@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuaisuji.dao.AccountDao">
+  <select id="getAllAccountByUserId" parameterType="Integer" resultType="Account">
+  	select * from accounts where user_id = #{user_id}
+  </select>
+  <insert id="addAccount" parameterType="Account">
+  	insert into accounts(user_id,account_type,account_item,account_amount,account_date,account_remark)
+  	value(#{user_id},#{account_type},#{account_item},#{account_amount},#{account_date},#{account_remark})
+  </insert>
+  <select id="getAllAccountByUserIdAndTypeId" parameterType="Integer" resultType="Account">
+  	select * from accounts where user_id = #{user_id} and account_type = #{account_type}
+  </select>
+  <select id="getAllAccountByUserIdAndItem" parameterType="Integer" resultType="Account">
+  	select * from accounts where user_id = #{user_id} and account_item = #{account_item}
+  </select>
+</mapper>
